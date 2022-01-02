@@ -1,9 +1,7 @@
-// import { Data } from "./api";
 import { MoackApi } from "./api";
 import { useEffect, useState } from "react";
-import "./style.scss";
 
-export const TestingApi = () => {
+export const SkatePage = () => {
   const [imgs, setImgs] = useState([]);
 
   const dataResponse = async () => {
@@ -30,8 +28,6 @@ export const TestingApi = () => {
           <img
             onMouseEnter={(e) => hoverImgIn(e.target, item.backImg)}
             onMouseLeave={(e) => hoverImgOut(e.target, item.frontImg)}
-            // onMouseEnter={(e) => setIsHover(!isHover)}
-            // onMouseLeave={(e) => setIsHover(!isHover)}
             src={item.frontImg}
             alt="skate"
           />
