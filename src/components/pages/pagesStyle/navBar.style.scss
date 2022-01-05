@@ -1,0 +1,37 @@
+$black_color: #2a2a2a;
+$yellow_color: #faec00;
+$white_color: #eeeeee;
+
+.colordMenu {
+  background: $black_color;
+  width: 100vw;
+  display: flex;
+  height: 50px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+  .item {
+    text-decoration: none;
+    margin: auto 0;
+    font-size: 1.1rem;
+    color: $white_color;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+  }
+  .item:hover {
+    color: $black_color;
+    background: $yellow_color;
+  }
+
+  .active {
+    color: $black_color;
+    background: $yellow_color;
+  }
+
+  #right{
+    margin-left: auto;
+  }
+}

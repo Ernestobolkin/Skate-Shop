@@ -1,0 +1,14 @@
+.pageContainer{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  
+  .loginContainer{
+    border: 1px solid red;
+    display: flex;
+    height: min-content;
+  }
+
+  
+}
