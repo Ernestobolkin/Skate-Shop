@@ -6,7 +6,7 @@ export const HomePage = (props) => {
       props.userData.userPassword === "admin" &&
       props.userData.userName === "admin"
     ) {
-      props.setIsShownAdmin(!props.isShownAdmin)
+      props.setIsShownAdmin(!props.isShownAdmin);
     }
   };
 
@@ -58,5 +58,15 @@ export const HomePage = (props) => {
     );
   };
 
-  return <>{props.isShownAdmin && renderLogin()}</>;
+  const logOutRender = () => {
+    return (
+      <button
+        onClick={() => {
+          props.setIsShownAdmin(!props.isShownAdmin);
+        }}
+      >LogOut</button>
+    );
+  };
+
+  return <>{props.isShownAdmin ? renderLogin() : logOutRender()}</>;
 };

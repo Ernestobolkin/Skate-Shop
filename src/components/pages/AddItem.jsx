@@ -52,10 +52,10 @@ export const AddItem = ({ addItem, setAddItem }) => {
           />
         </div>
         <div className="field">
-          <label htmlFor="BackImg">Back Image</label>
+          <label htmlFor="backImg">Back Image</label>
           <input
             type="text"
-            name="BackImg"
+            name="backImg"
             onChange={(e) =>
               setAddItem({ ...addItem, backImg: e.target.value })
             }

@@ -19,7 +19,7 @@ export class MoackApi {
   };
 
   static updateItem = async (id, item) => {
-    await mokeApi.put(`shoes/${id}`, item);
+    await mokeApi.put(`skate/${id}`, item);
   };
 
   static AddItem = async (item) => {

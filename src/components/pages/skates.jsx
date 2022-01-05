@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./pagesStyle/skate.style.scss";
 
 export const SkatePage = (props) => {
-
   const dataResponse = async () => {
     const data = await MoackApi.getProductsData();
     props.setData(data);
@@ -49,7 +48,7 @@ export const SkatePage = (props) => {
 
   const deleteItem = async (id) => {
     await MoackApi.deleteItem(id);
-    dataResponse()
+    dataResponse();
   };
 
   const renderItems = () => {
@@ -67,23 +66,31 @@ export const SkatePage = (props) => {
           <p>
             Price : <span>${item.price}</span>
           </p>
-          <button
-            onClick={() =>
-              addToCart(
-                item.id,
-                item.brand,
-                item.frontImg,
-                item.price,
-                item.quantity,
-                item.size
-              )
-            }
-          >
-            Add To Cart
-          </button>
+          {props.isShownAdmin && (
+            <button
+              onClick={() =>
+                addToCart(
+                  item.id,
+                  item.brand,
+                  item.frontImg,
+                  item.price,
+                  item.quantity,
+                  item.size
+                )
+              }
+            >
+              Add To Cart
+            </button>
+          )}
           {/* {!props.isShownAdmin && renderRemoveBtn} */}
-          {!props.isShownAdmin && <button onClick={() => deleteItem(item.id)}>Delete</button>}
-          {!props.isShownAdmin &&  <Link to={`/skate/edit/${item.id}`} ><button>Edit</button></Link>}
+          {!props.isShownAdmin && (
+            <button onClick={() => deleteItem(item.id)}>Delete</button>
+          )}
+          {!props.isShownAdmin && (
+            <Link to={`/skate/edit/${item.id}`}>
+              <button>Edit</button>
+            </Link>
+          )}
         </div>
       );
     });
