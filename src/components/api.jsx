@@ -11,11 +11,11 @@ export class MoackApi {
   };
 
   static deleteItem = async (id) => {
-    await mokeApi.delete("shoes/" + id);
+    await mokeApi.delete("skate/" + id);
   };
 
   static getItem = async (id) => {
-    return await mokeApi.get("shoes/" + id);
+    await mokeApi.get("skate/" + id);
   };
 
   static updateItem = async (id, item) => {

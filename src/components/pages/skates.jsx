@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 import "./pagesStyle/skate.style.scss";
 
 export const SkatePage = (props) => {
-  const [imgs, setImgs] = useState([]);
 
   const dataResponse = async () => {
     const data = await MoackApi.getProductsData();
-    setImgs(data);
+    props.setData(data);
   };
 
   useEffect(() => {
@@ -48,8 +47,13 @@ export const SkatePage = (props) => {
     console.log(props.cartCheck, "the array");
   };
 
+  const deleteItem = async (id) => {
+    await MoackApi.deleteItem(id);
+    dataResponse()
+  };
+
   const renderItems = () => {
-    return imgs.map((item) => {
+    return props.data.map((item) => {
       return (
         <div key={item.id} className="cart">
           <img
@@ -77,6 +81,9 @@ export const SkatePage = (props) => {
           >
             Add To Cart
           </button>
+          {/* {!props.isShownAdmin && renderRemoveBtn} */}
+          {!props.isShownAdmin && <button onClick={() => deleteItem(item.id)}>Delete</button>}
+          {!props.isShownAdmin &&  <Link to={`/skate/edit/${item.id}`} ><button>Edit</button></Link>}
         </div>
       );
     });
@@ -84,8 +91,10 @@ export const SkatePage = (props) => {
 
   const renderButtonAdd = () => {
     return (
-      <Link to="/skate/AddItem"><button className="addItem">Add Item</button></Link>
-    )
+      <Link to="/skate/AddItem">
+        <button className="addItem">Add Item</button>
+      </Link>
+    );
   };
 
   return (
