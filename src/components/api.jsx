@@ -23,6 +23,6 @@ export class MoackApi {
   };
 
   static AddItem = async (item) => {
-    await mokeApi.post(`shoes/`, item);
+    await mokeApi.post(`skate`, item);
   };
 }

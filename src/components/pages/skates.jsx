@@ -1,5 +1,6 @@
 import { MoackApi } from "../api";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./pagesStyle/skate.style.scss";
 
 export const SkatePage = (props) => {
@@ -81,8 +82,15 @@ export const SkatePage = (props) => {
     });
   };
 
+  const renderButtonAdd = () => {
+    return (
+      <Link to="/skate/AddItem"><button className="addItem">Add Item</button></Link>
+    )
+  };
+
   return (
     <div className="wrapper">
+      {!props.isShownAdmin && renderButtonAdd()}
       <div className="skate-container">{renderItems()}</div>
     </div>
   );
