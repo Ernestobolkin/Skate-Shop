@@ -1,5 +1,5 @@
 import { MoackApi } from "../api";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./pagesStyle/skate.style.scss";
 
@@ -68,6 +68,7 @@ export const SkatePage = (props) => {
           </p>
           {props.isShownAdmin && (
             <button
+              className="btn"
               onClick={() =>
                 addToCart(
                   item.id,
@@ -84,7 +85,9 @@ export const SkatePage = (props) => {
           )}
           {/* {!props.isShownAdmin && renderRemoveBtn} */}
           {!props.isShownAdmin && (
-            <button onClick={() => deleteItem(item.id)}>Delete</button>
+            <button className="btn" onClick={() => deleteItem(item.id)}>
+              Delete
+            </button>
           )}
           {!props.isShownAdmin && (
             <Link to={`/skate/edit/${item.id}`}>

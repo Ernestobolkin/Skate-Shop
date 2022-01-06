@@ -8,7 +8,7 @@ export const AddItem = ({ addItem, setAddItem }) => {
   const setIdByData = async () => {
     const item = await MoackApi.getProductsData();
     const id = +(item[item.length - 1].id + 1).toString();
-    
+
     setAddItem({ ...addItem, id });
     console.log(addItem);
   };
@@ -78,6 +78,7 @@ export const AddItem = ({ addItem, setAddItem }) => {
           />
         </div>
         <button
+          className="btn"
           onClick={() => {
             handleOnClick();
           }}

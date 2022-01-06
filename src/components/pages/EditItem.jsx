@@ -91,6 +91,7 @@ export const EditItem = (props) => {
         />
       </div>
       <button
+        className="btn"
         onClick={() => {
           handleOnClick();
         }}

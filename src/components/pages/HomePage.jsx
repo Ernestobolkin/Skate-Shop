@@ -49,7 +49,7 @@ export const HomePage = (props) => {
               }
             />
             <br />
-            <button onClick={(e) => onSubmitBtn(e)} type="btn">
+            <button className="btn" onClick={(e) => onSubmitBtn(e)} type="btn">
               Login
             </button>
           </form>
@@ -61,10 +61,13 @@ export const HomePage = (props) => {
   const logOutRender = () => {
     return (
       <button
+        className="btn"
         onClick={() => {
           props.setIsShownAdmin(!props.isShownAdmin);
         }}
-      >LogOut</button>
+      >
+        LogOut
+      </button>
     );
   };
 
